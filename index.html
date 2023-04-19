@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokédex</title>
+    <link rel="stylesheet" href="./style/style.css">
+    <script src="main.js" defer type="module"></script>
+</head>
+
+<body>
+
+    <header>
+        <nav id="nav">
+            <img src="./image/logo.png" alt="logo-pokedex">
+            <ul id="navList">
+                <li class="nav-item"><button class="btn btn-header" id="ver-todos">Ver todos</button></li>
+                <li class="nav-item"><button class="btn btn-header normal" id="normal">Normal</button></li>
+                <li class="nav-item"><button class="btn btn-header fuego" id="fuego">Fuego</button></li>
+                <li class="nav-item"><button class="btn btn-header agua" id="agua">Agua</button></li>
+                <li class="nav-item"><button class="btn btn-header planta" id="planta">Planta</button></li>
+                <li class="nav-item"><button class="btn btn-header electrico" id="electrico">Eléctrico</button></li>
+                <li class="nav-item"><button class="btn btn-header hielo" id="hielo">Hielo</button></li>
+                <li class="nav-item"><button class="btn btn-header lucha" id="lucha">Lucha</button></li>
+                <li class="nav-item"><button class="btn btn-header veneno" id="veneno">Veneno</button></li>
+                <li class="nav-item"><button class="btn btn-header tierra" id="tierra">Tierra</button></li>
+                <li class="nav-item"><button class="btn btn-header volador" id="volador">Volador</button></li>
+                <li class="nav-item"><button class="btn btn-header psiquico" id="psiquico">Psíquico</button></li>
+                <li class="nav-item"><button class="btn btn-header bicho" id="bicho">Bicho</button></li>
+                <li class="nav-item"><button class="btn btn-header roca" id="roca">Roca</button></li>
+                <li class="nav-item"><button class="btn btn-header fantasma" id="fantasma">Fantasma</button></li>
+                <li class="nav-item"><button class="btn btn-header siniestro" id="siniestro">Siniestro</button></li>
+                <li class="nav-item"><button class="btn btn-header dragon" id="dragon">Dragón</button></li>
+                <li class="nav-item"><button class="btn btn-header acero" id="acero">Acero</button></li>
+                <li class="nav-item"><button class="btn btn-header hada" id="hada">Hada</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="todos">
+        <div class="pokemon-todos" id="listaPokemon">
+            <div class="pokemon">
+                <div class="pokemon-imagen">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"
+                        alt="">
+                </div>
+                <div class="pokemon-info">
+                    <div class="nombre-c">
+                        <p class="pokemon-id">#34</p>
+                        <h2 class="pokemon-nombre">Pikachu</h2>
+                    </div>
+                    <div class="pokemon-tipos">
+                        <p class="tipo electrico">Eléctrico</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="buttons" id="buttons"></div>
+
+</body>
+
+</html>
