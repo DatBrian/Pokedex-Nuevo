@@ -267,3 +267,13 @@ button {
     background-color: var(--type-hada);
     color: var(--clr-black);
 }
+
+.pokedex {
+    cursor: pointer;
+}
+
+.pokedex img {
+    width: 50px;
+    height: 50px;
+    pointer-events: none;
+}
