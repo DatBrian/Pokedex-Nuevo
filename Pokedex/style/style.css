@@ -18,6 +18,11 @@ main {
     margin-top: 2%;
     padding: 15px;
     position: relative;
+    opacity: 0;
+    animation-name: aparicion;
+    animation-duration: 1.5s;
+    animation-delay: .5s;
+    animation-fill-mode: forwards;
 }
 
 .pokedex {
@@ -91,4 +96,16 @@ main {
 .button:active {
     box-shadow: inset -4px 4px 0 #222;
     font-size: 0.9rem;
+}
+
+@keyframes aparicion {
+    0% {
+        opacity: 0;
+        transform: scale(1.5) translateY(-500px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
 }

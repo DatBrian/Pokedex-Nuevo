@@ -20,10 +20,11 @@ let getPokemon = async (url) => {
                             <h2 class="pokemon-nombre">${resultado.name}</h2>
                         </div>
                         <div class="pokemon-tipos">
-                        ${resultado.types.map(type => `<p class="tipo ${type.type.name}">${type.type.name}</p>`).join('')}                    </div>
+                        ${resultado.types.map(type => `<p class="tipo ${type.type.name}">${type.type.name}</p>`).join('')}
+                        </div>
+                    </div>
                 </div>
-                </div>
-            `;
+                `;
             return plantilla;
         }));
         let data = pokemon.join('');
