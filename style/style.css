@@ -105,17 +105,23 @@ header {
     box-shadow: 0 0 3rem -1rem rgba(0, 0, 0, .25);
     padding-block: 1rem;
     text-transform: uppercase;
+    cursor: pointer;
+}
+
+.pokemon:hover>.pokemon-imagen img {
+    transform: scale(1.2);
 }
 
 .pokemon-imagen {
     padding-inline: 1rem;
     display: flex;
     justify-content: center;
+    pointer-events: none;
 }
 
 .pokemon-imagen img {
     width: 100%;
-    max-width: 6rem;
+    max-width: 10rem;
 }
 
 .pokemon-info {
@@ -168,6 +174,80 @@ header {
     margin: 2em auto 2em;
 }
 
+.poke-animacion {
+    background-image: url(../recursos/fondo\ ataque.png);
+    position: fixed;
+    padding: 100px;
+    top: 200px;
+    left: 0;
+    width: 100%;
+    display: none;
+    background-position: 0 0;
+    background-repeat: repeat-x;
+    animation: moverFondo 1s linear infinite;
+}
+
+.poke-modal {
+    position: fixed;
+    width: 70%;
+    height: 50%;
+    background-color: var(--clr-gray);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: solid 1px var(--clr-black);
+    display: none;
+    padding: 1rem;
+    cursor: auto;
+    border-radius: 10px;
+
+}
+
+.poke-modal .pokemon-imagen {
+    justify-content: flex-start !important;
+    align-content: center !important;
+}
+
+.poke-modal img {
+    width: 10rem;
+    height: 10rem;
+    align-self: center;
+    max-width: 10rem;
+    max-height: 10rem;
+}
+
+.poke-info {
+    width: 60%;
+    margin: auto;
+}
+
+.poke-button {
+    width: 10rem;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    margin-inline: auto;
+    background-color: #7038F8;
+    padding: .3rem;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.poke-button button {
+    color: white;
+    cursor: pointer;
+}
+
+@keyframes moverFondo {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: -2000px 0;
+    }
+}
+
 ul {
     list-style-type: none;
 }
@@ -176,6 +256,43 @@ button {
     background-color: transparent;
     border: 0;
     border-radius: 0;
+}
+
+.btnP {
+    /* Variables */
+    --button_radius: 0.75em;
+    --button_color: #e8e8e8;
+    --button_outline_color: #000000;
+    font-size: 17px;
+    font-weight: bold;
+    border: none;
+    border-radius: var(--button_radius);
+    background: var(--button_outline_color);
+    margin-inline: 1rem;
+}
+
+.button_top {
+    display: block;
+    box-sizing: border-box;
+    border: 2px solid var(--button_outline_color);
+    border-radius: var(--button_radius);
+    padding: 0.75em 1.5em;
+    background: var(--button_color);
+    color: var(--button_outline_color);
+    transform: translateY(-0.2em);
+    transition: transform 0.1s ease;
+    width: 120px;
+    max-width: 120px;
+}
+
+.btnP:hover .button_top {
+    /* Pull the button upwards when hovered */
+    transform: translateY(-0.33em);
+}
+
+.btnP:active .button_top {
+    /* Push the button downwards when pressed */
+    transform: translateY(0);
 }
 
 .normal {

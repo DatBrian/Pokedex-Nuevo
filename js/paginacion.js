@@ -36,14 +36,43 @@ export default {
         }
 
         buttons.addEventListener("click", (e) => {
-            if (e.target.classList.contains('btn')) {
+            if (e.target.classList.contains('btnS')) {
                 let value = e.target.dataset.url;
 
                 ws.postMessage({ message: "getPokemon", url: value });
             }
         })
 
+
         getPokemon();
+
+        document.addEventListener("click", (e) => {
+            if (e.target.classList.contains("pokemon")) {
+                let animacion = e.target.children[1];
+                animacion.style.display = "block";
+
+                let promesaAnimacion = new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        quitarAnimation(animacion);
+                        resolve();
+                    }, 1000);
+                });
+
+                promesaAnimacion.then(() => {
+                    let modal = e.target.children[2];
+                    modal.style.display = "flex";
+                });
+
+                function quitarAnimation(animation) {
+                    animation.style.display = "none";
+                }
+            } else if (e.target.classList.contains("cerrar-modal")) {
+                let modal = e.target.parentNode.parentNode.parentNode.parentNode;
+
+                modal.style.display = "none";
+            }
+        })
+
 
     }
 }
