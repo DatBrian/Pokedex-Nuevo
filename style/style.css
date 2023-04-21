@@ -99,6 +99,36 @@ header {
     }
 }
 
+@media screen and (min-width: 470px) and (max-width: 1419px) {
+    #logo {
+        width: 50%;
+        margin: auto;
+    }
+}
+
+@media screen and (min-width: 1420px) {
+    #nav {
+        flex-direction: row;
+        margin: 0;
+        align-items: center;
+        gap: 0;
+        max-width: 1400px;
+    }
+
+    #navList {
+        margin-inline: 5rem;
+    }
+
+    #logo {
+        width: 20%;
+    }
+
+    .pokedex {
+        justify-self: flex-end;
+    }
+}
+
+
 .pokemon {
     border-radius: 1rem;
     background-color: var(--clr-white);
@@ -204,15 +234,45 @@ header {
 }
 
 .poke-modal .pokemon-imagen {
-    justify-content: center !important;
-    align-content: center !important;
     border: solid 1px var(--clr-black);
-    width: 30%;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
 }
 
 .poke-modal img {
+    position: absolute;
     align-self: center;
     justify-self: center;
+    top: -90px;
+}
+
+.poke-modal p {
+    margin: auto;
+}
+
+.poke-modal .nombre-c {
+    margin-top: -60px;
+    margin-bottom: 1.7rem;
+}
+
+.poke-modal .pokemon-imagen .info {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+}
+
+.poke-modal .poke-types {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: auto;
+}
+
+.poke-modal .pokemon-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 .poke-info {
@@ -222,9 +282,9 @@ header {
 
 }
 
-.poke-info .poke- .poke-button {
+.poke-info .poke-button {
     width: 10rem;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     display: flex;
     flex-direction: column;
     margin-inline: auto;
@@ -232,11 +292,43 @@ header {
     padding: .3rem;
     border-radius: 10px;
     cursor: pointer;
+    transition-duration: .5s;
+}
+
+.poke-button:hover {
+    background-color: #6890F0;
 }
 
 .poke-button button {
     color: white;
     cursor: pointer;
+}
+
+
+.progress-bar-container {
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.progress-bar {
+    border-radius: 5px;
+    background-color: black;
+    margin-bottom: 4px;
+    margin-left: 1rem;
+}
+
+.progress-bar-container span {
+    background-color: #6890F0;
+    border-radius: 5px;
+    padding-inline: .5rem;
+    padding-block: -1px;
+}
+
+.progress-bar-container .num {
+    color: var(--clr-white);
+    text-align: center;
 }
 
 @keyframes moverFondo {
@@ -284,6 +376,7 @@ button {
     transition: transform 0.1s ease;
     width: 120px;
     max-width: 120px;
+    cursor: pointer;
 }
 
 .btnP:hover .button_top {

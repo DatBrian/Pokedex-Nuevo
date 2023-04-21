@@ -57,10 +57,14 @@ export default {
                 });
 
                 promesaAnimacion.then(() => {
+                    let modales = document.querySelectorAll(".poke-modal");
+                    modales.forEach((modal) => {
+                        modal.style.display = "none";
+                    })
                     let modal = e.target.children[2];
                     modal.style.display = "flex";
                 });
-                
+
                 function quitarAnimation(animation) {
                     animation.style.display = "none";
                 }
