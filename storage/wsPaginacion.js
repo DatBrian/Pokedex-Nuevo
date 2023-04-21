@@ -39,10 +39,8 @@ let getPokemon = async (url) => {
                         <div class="nombre-c">
                         <h2 class="pokemon-nombre">${resultado.name}</h2>
                         </div>
-                        <div class="pokemon-tipos">
-                        ${resultado.types.map(type => `<p class="tipo ${type.type.name}">${type.type.name}</p>`).join('')}
-                        </div>
                         <div class="pokemon-stats">
+                        ${resultado.types.map(type => `<p class="tipo ${type.type.name}">${type.type.name}</p>`).join('')}
                             <p>Hp:${resultado.stats["0"]["base_stat"]}</p>
                             <p>Attack:${resultado.stats["1"]["base_stat"]}</p>
                             <p>Defense:${resultado.stats["2"]["base_stat"]}</p>

@@ -204,24 +204,25 @@ header {
 }
 
 .poke-modal .pokemon-imagen {
-    justify-content: flex-start !important;
+    justify-content: center !important;
     align-content: center !important;
+    border: solid 1px var(--clr-black);
+    width: 30%;
 }
 
 .poke-modal img {
-    width: 10rem;
-    height: 10rem;
     align-self: center;
-    max-width: 10rem;
-    max-height: 10rem;
+    justify-self: center;
 }
 
 .poke-info {
-    width: 60%;
-    margin: auto;
+    width: 70%;
+    padding: 5rem;
+    border: solid 1px var(--clr-black);
+
 }
 
-.poke-button {
+.poke-info .poke- .poke-button {
     width: 10rem;
     margin-top: 1rem;
     display: flex;

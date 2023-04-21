@@ -3,8 +3,6 @@ export default {
         let listaPokemon = document.getElementById('listaPokemon')
         let buttons = document.getElementById('buttons')
         let urlPokemon = 'https://pokeapi.co/api/v2/pokemon'
-        let btnNext;
-        let btnPrevious;
         let ws = new Worker("./storage/wsPaginacion.js");
 
         ws.onmessage = (e) => {
@@ -62,7 +60,7 @@ export default {
                     let modal = e.target.children[2];
                     modal.style.display = "flex";
                 });
-
+                
                 function quitarAnimation(animation) {
                     animation.style.display = "none";
                 }
@@ -72,7 +70,6 @@ export default {
                 modal.style.display = "none";
             }
         })
-
 
     }
 }
