@@ -43,9 +43,10 @@ export default {
 
 
         getPokemon();
-
         document.addEventListener("click", (e) => {
             if (e.target.classList.contains("pokemon")) {
+                let sound = document.querySelector("#click");
+                sound.play();
                 let animacion = e.target.children[1];
                 animacion.style.display = "block";
 
@@ -53,7 +54,7 @@ export default {
                     setTimeout(() => {
                         quitarAnimation(animacion);
                         resolve();
-                    }, 1000);
+                    }, 1400);
                 });
 
                 promesaAnimacion.then(() => {
@@ -73,7 +74,22 @@ export default {
 
                 modal.style.display = "none";
             }
-        })
+        });
+        let audio = document.querySelector("#theme");
+        audio.volume = 0.2;
+        audio.loop = "true";
+        audio.play();
+
+        let switchMusic = document.querySelector(".switch");
+
+        switchMusic.addEventListener('change', (e) => {
+            if (e.target.checked) {
+                audio.pause();
+            } else {
+                audio.play();
+            }
+        });
+
 
     }
 }

@@ -6,15 +6,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokédex</title>
+    <link rel="icon" href="./Pokedex/imagenes/favicon-16x16.png">
     <link rel="stylesheet" href="./style/style.css">
     <script src="main.js" defer type="module"></script>
+    <audio id="theme">
+        <source
+            src="./recursos/y2mate.com - Pokémon Rojo FuegoVerde Hoja OST  61  Prado Isla IntaValle RuinasCañón Sétano.mp3"
+            type="audio/mpeg">
+    </audio>
+    <audio id="click">
+        <source src="./recursos/y2mate (mp3cut.net).mp3" type="audio/mpeg">
+    </audio>
 </head>
 
-<body>
 
+<body>
     <header>
         <nav id="nav">
             <img id="logo" src="./image/logo2.png" alt="logo-pokedex">
+
             <ul id="navList">
                 <li class="nav-item"><button class="btn btn-header" id="ver-todos">Ver todos</button></li>
                 <li class="nav-item"><button class="btn btn-header normal" id="normal">Normal</button></li>
@@ -36,11 +46,17 @@
                 <li class="nav-item"><button class="btn btn-header steel" id="steel">Steel</button></li>
                 <li class="nav-item"><button class="btn btn-header fairy" id="fairy">Fairy</button></li>
             </ul>
+            <p>Music</p>
+            <label class="switch">
+                <input class="switch" type="checkbox">
+                <span class="slider"></span>
+            </label>
             <button class="pokedex">
                 <a href="./Pokedex/index.html">
                     <img src="./Pokedex/imagenes/pokedex.png" alt="">
                 </a>
             </button>
+
         </nav>
     </header>
 

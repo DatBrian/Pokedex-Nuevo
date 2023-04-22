@@ -43,6 +43,86 @@ header {
 
 }
 
+/* The switch - the box around the slider */
+.switch {
+    /* Variables */
+    --switch_width: 2em;
+    --switch_height: 1em;
+    --thumb_color: #e8e8e8;
+    --track_color: #e8e8e8;
+    --track_active_color: #888;
+    --outline_color: #000;
+    font-size: 17px;
+    position: relative;
+    display: inline-block;
+    width: var(--switch_width);
+    height: var(--switch_height);
+    margin-right: 3rem;
+    margin-left: 1rem;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    box-sizing: border-box;
+    border: 2px solid var(--outline_color);
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--track_color);
+    transition: .15s;
+    border-radius: var(--switch_height);
+}
+
+.slider:before {
+    box-sizing: border-box;
+    position: absolute;
+    content: "";
+    height: var(--switch_height);
+    width: var(--switch_height);
+    border: 2px solid var(--outline_color);
+    border-radius: 100%;
+    left: -2px;
+    bottom: -2px;
+    background-color: var(--thumb_color);
+    transform: translateY(-0.2em);
+    box-shadow: 0 0.2em 0 var(--outline_color);
+    transition: .15s;
+}
+
+input:checked+.slider {
+    background-color: var(--track_active_color);
+}
+
+input:focus-visible+.slider {
+    box-shadow: 0 0 0 2px var(--track_active_color);
+}
+
+/* Raise thumb when hovered */
+input:hover+.slider:before {
+    transform: translateY(-0.3em);
+    box-shadow: 0 0.3em 0 var(--outline_color);
+}
+
+input:checked+.slider:before {
+    transform: translateX(calc(var(--switch_width) - var(--switch_height))) translateY(-0.2em);
+}
+
+/* Raise thumb when hovered & checked */
+input:hover:checked+.slider:before {
+    transform: translateX(calc(var(--switch_width) - var(--switch_height))) translateY(-0.3em);
+    box-shadow: 0 0.3em 0 var(--outline_color);
+}
+
 #nav {
     display: flex;
     flex-direction: column;
@@ -136,10 +216,15 @@ header {
     padding-block: 1rem;
     text-transform: uppercase;
     cursor: pointer;
+    transition-duration: .5s;
 }
 
 .pokemon:hover>.pokemon-imagen img {
     transform: scale(1.2);
+}
+
+.pokemon:hover {
+    background-color: rgba(187, 185, 185, 0.339);
 }
 
 .pokemon-imagen {
@@ -204,18 +289,63 @@ header {
     margin: 2em auto 2em;
 }
 
+@keyframes poke-animacion {
+    0% {
+        transform: translateX(100%);
+        background-position: 0 0;
+    }
+
+    60% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(0%);
+        background-position: -2000px 0;
+    }
+}
+
+@keyframes moverFondo {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: -2000px 0;
+    }
+}
+
+@keyframes llegada {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+}
+
 .poke-animacion {
     background-image: url(../recursos/fondo\ ataque.png);
     position: fixed;
-    padding: 100px;
+    padding: 5rem;
     top: 200px;
     left: 0;
     width: 100%;
-    display: none;
     background-position: 0 0;
     background-repeat: repeat-x;
-    animation: moverFondo 1s linear infinite;
+    animation: moverFondo .6s linear infinite, llegada .7s ease forwards;
+    display: none;
 }
+
+.poke-animacion .pokemon-imagen {
+    transform: translateX(100%);
+    animation-name: llegada;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
+}
+
 
 .poke-modal {
     position: fixed;
@@ -230,7 +360,6 @@ header {
     padding: 1rem;
     cursor: auto;
     border-radius: 10px;
-
 }
 
 .poke-modal .pokemon-imagen {
@@ -314,7 +443,7 @@ header {
 
 .progress-bar {
     border-radius: 5px;
-    background-color: black;
+    background-color: gray;
     margin-bottom: 4px;
     margin-left: 1rem;
 }
@@ -339,6 +468,30 @@ header {
     to {
         background-position: -2000px 0;
     }
+}
+
+@keyframes llegada {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+.poke-animacion {
+    background-color: "" !important;
+    opacity: 1 !important;
+}
+
+.background-effect:not(.poke-animacion) {
+    background-color: black;
+    opacity: .1;
+}
+
+.document-opacity *:not(.animacion) {
+    opacity: 0.5;
 }
 
 ul {

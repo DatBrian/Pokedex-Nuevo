@@ -17,7 +17,7 @@ let getPokemon = async (url) => {
             let resultadoSpecies = await respuestaSpecies.json();
 
             // Obtener la descripción del Pokemon
-            let descripcion = resultadoSpecies.flavor_text_entries.find(entry => entry.language.name === 'es').flavor_text;
+            let descripcion = resultadoSpecies.flavor_text_entries.find(entry => entry.language.name === 'en').flavor_text;
 
 
             plantilla = `
