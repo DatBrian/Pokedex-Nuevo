@@ -18,7 +18,7 @@ export default {
 
         })
 
-        input.addEventListener("input", (e) => {
+        input.addEventListener("keyup", (e) => {
             let dato = input.value.trim().toLowerCase();
             if (!dato) return;
 
