@@ -43,6 +43,58 @@ header {
 
 }
 
+#form {
+    width: 100%;
+}
+
+.input {
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    padding: 1em;
+    background-color: #ffffff;
+    box-shadow: inset 2px 5px 10px rgba(0, 0, 0, 0.1);
+    transition: 300ms ease-in-out;
+    width: 80%;
+}
+
+.input:focus {
+    background-color: white;
+    transform: scale(1.05);
+}
+
+
+.submit {
+    position: relative;
+    width: 0px;
+    height: 60px;
+    overflow: hidden;
+    border-radius: 50px;
+    padding-left: 35px;
+    background-color: var(--clr-gray);
+    cursor: pointer;
+    margin-left: 1rem;
+}
+
+
+.pokeball {
+    position: absolute;
+    top: 25%;
+    left: 10%;
+    animation: rotate_4991 1s linear infinite;
+}
+
+@keyframes rotate_4991 {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
 /* The switch - the box around the slider */
 .switch {
     /* Variables */
@@ -147,12 +199,12 @@ input:hover:checked+.slider:before {
     cursor: pointer;
     text-transform: uppercase;
     font-weight: 600;
-    box-shadow: 0 0 .5rem rgba(0, 0, 0, .25);
+    box-shadow: 0 0 .2rem rgba(0, 0, 0, .25);
 }
 
 .btn-header:hover {
     transform: scale(1.1);
-    box-shadow: 0 0 1rem rgba(0, 0, 0, .25);
+    box-shadow: 0 0 .5rem rgba(0, 0, 0, .25);
 }
 
 #todos {
@@ -197,17 +249,32 @@ input:hover:checked+.slider:before {
 
     #navList {
         margin-inline: 5rem;
+        margin-inline-end: 1rem;
     }
 
     #logo {
         width: 20%;
+        transition-duration: 1s;
+    }
+
+    #logo:hover {
+        transform: scale(1.3);
     }
 
     .pokedex {
         justify-self: flex-end;
+        transition-duration: 1s;
+    }
+
+    .pokedex:hover {
+        transform: scale(1.5);
     }
 }
 
+.thirdHeader {
+    display: flex;
+    align-items: center;
+}
 
 .pokemon {
     border-radius: 1rem;

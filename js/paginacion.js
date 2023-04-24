@@ -1,25 +1,44 @@
 export default {
     all() {
-        let listaPokemon = document.getElementById('listaPokemon')
-        let buttons = document.getElementById('buttons')
+        let listaPokemon = document.querySelector('#listaPokemon')
+        let buttons = document.querySelector('#buttons')
         let urlPokemon = 'https://pokeapi.co/api/v2/pokemon'
         let ws = new Worker("./storage/wsPaginacion.js");
+        let buttonsType = document.querySelectorAll(".btn")
 
         ws.onmessage = (e) => {
             let { message, data } = e.data;
 
             switch (message) {
                 case "pokemon":
+                    clearHtml()
                     renderPokemon(data);
+                    buttons.style.display = "flex";
                     break;
+                case "pokemonType":
+                    pokeType(data);
                 case "buttons":
                     renderButtons(data);
+                    buttons.style.display = "flex";
                     break;
                 case "error":
                     console.error(data);
                     break;
             }
         }
+
+        let renderPokemonPromise = (data) => {
+            return new Promise((resolve, reject) => {
+                renderPokemon(data);
+                resolve();
+            });
+        };
+
+        let pokeType = async (data) => {
+            clearHtml();
+            await renderPokemonPromise(data);
+            buttons.style.display = "none";
+        };
 
         let getPokemon = () => {
             ws.postMessage({ message: "getPokemon", url: urlPokemon });
@@ -33,63 +52,29 @@ export default {
             buttons.innerHTML = data;
         }
 
+        function clearHtml() {
+            listaPokemon.innerHTML = '';
+        }
+
         buttons.addEventListener("click", (e) => {
             if (e.target.classList.contains('btnS')) {
                 let value = e.target.dataset.url;
-
+                let sound = document.querySelector("#click");
+                sound.play();
                 ws.postMessage({ message: "getPokemon", url: value });
             }
         })
-
-
         getPokemon();
-        document.addEventListener("click", (e) => {
-            if (e.target.classList.contains("pokemon")) {
+
+        buttonsType.forEach((button) => {
+            button.addEventListener("click", (e) => {
+                let type = button.dataset.type;
                 let sound = document.querySelector("#click");
                 sound.play();
-                let animacion = e.target.children[1];
-                animacion.style.display = "block";
-
-                let promesaAnimacion = new Promise((resolve, reject) => {
-                    setTimeout(() => {
-                        quitarAnimation(animacion);
-                        resolve();
-                    }, 1400);
-                });
-
-                promesaAnimacion.then(() => {
-                    let modales = document.querySelectorAll(".poke-modal");
-                    modales.forEach((modal) => {
-                        modal.style.display = "none";
-                    })
-                    let modal = e.target.children[2];
-                    modal.style.display = "flex";
-                });
-
-                function quitarAnimation(animation) {
-                    animation.style.display = "none";
-                }
-            } else if (e.target.classList.contains("cerrar-modal")) {
-                let modal = e.target.parentNode.parentNode.parentNode.parentNode;
-
-                modal.style.display = "none";
-            }
-        });
-        let audio = document.querySelector("#theme");
-        audio.volume = 0.2;
-        audio.loop = "true";
-        audio.play();
-
-        let switchMusic = document.querySelector(".switch");
-
-        switchMusic.addEventListener('change', (e) => {
-            if (e.target.checked) {
-                audio.pause();
-            } else {
-                audio.play();
-            }
-        });
-
+                let urlT = `https://pokeapi.co/api/v2/type/${type}`
+                ws.postMessage({ message: "getPokemonT", url: urlT, type: type });
+            })
+        })
 
     }
 }
