@@ -9,12 +9,32 @@ let submit = async (url) => {
         let urlSpecies = resultado.species.url;
         let respuestaSpecies = await fetch(urlSpecies);
         let resultadoSpecies = await respuestaSpecies.json();
-        let descripcion = resultadoSpecies.flavor_text_entries.find(entry => entry.language.name === 'en').flavor_text;
+        let descripcionEntry = resultadoSpecies.flavor_text_entries
+            ? resultadoSpecies.flavor_text_entries.find(entry => entry.language.name === 'en')
+            : null;
+
+        let descripcion = descripcionEntry ? descripcionEntry.flavor_text : "Sin descripción";
+
+        let imagenCard =
+            resultado['sprites']['versions']['generation-iv']['platinum']['front_default'] ||
+            resultado['sprites']['front_default'] ||
+            resultado['sprites']['o r']['official-artwork']['front_default'] ||
+            "../image/pokeball2.png";
+
+        let animacionimage = resultado['sprites']['front_default']
+            ? resultado['sprites']['front_default']
+            : "../image/pokeball2.png";
+
+        let gifCard =
+            resultado['sprites']['versions']['generation-v']['black-white']['animated']['front_default'] ||
+            resultado['sprites']['front_default'] ||
+            resultado['sprites']['other']['official-artwork']['front_default'] ||
+            "../image/pokeball2.png";
 
         let plantilla = `
             <div class="pokemon">
                 <div class = "pokemon-imagen">
-                    <img src=${resultado['sprites']['versions']['generation-iv']['platinum']['front_default']} alt =${resultado.name}>
+                    <img src=${imagenCard} alt =${resultado.name}>
                     <div class="pokemon-info">
                         <div class="nombre-c">
                             <p class="pokemon-id">#${resultado.id}</p>
@@ -27,13 +47,13 @@ let submit = async (url) => {
                 </div>
                 <div class="poke-animacion">
                     <div class="pokemon-imagen">
-                        <img src=${resultado['sprites']['front_default']}>
+                        <img src=${animacionimage}>
                     </div>
                 </div>
 
                 <div class="poke-modal">
                     <div class="pokemon-imagen">
-                    <img src=${resultado['sprites']['versions']['generation-v']['black-white']['animated']['front_default']}>
+                    <img src=${gifCard}>
                     <div class="info">
                         <div class="poke-types">
                         ${resultado.types.map(type => `<p class="tipo ${type.type.name}">${type.type.name}</p>`).join('')}
@@ -117,19 +137,32 @@ let typing = async (url, dato) => {
             let urlSpecies = resultado.species.url;
             let respuestaSpecies = await fetch(urlSpecies);
             let resultadoSpecies = await respuestaSpecies.json();
-            let descripcion = resultadoSpecies.flavor_text_entries.find(entry => entry.language.name === 'en').flavor_text;
+            let descripcionEntry = resultadoSpecies.flavor_text_entries
+                ? resultadoSpecies.flavor_text_entries.find(entry => entry.language.name === 'en')
+                : null;
 
-            if (resultadoSpecies.flavor_text_entries) {
-                let descripcionEntry = resultadoSpecies.flavor_text_entries.find(entry => entry.language.name === 'en');
-                if (descripcionEntry) {
-                    descripcion = descripcionEntry.flavor_text;
-                }
-            }
+            let descripcion = descripcionEntry ? descripcionEntry.flavor_text : "Sin descripción";
+
+            let imagenCard =
+                resultado['sprites']['versions']['generation-iv']['platinum']['front_default'] ||
+                resultado['sprites']['front_default'] ||
+                resultado['sprites']['o r']['official-artwork']['front_default'] ||
+                "../image/pokeball2.png";
+
+            let animacionimage = resultado['sprites']['front_default']
+                ? resultado['sprites']['front_default']
+                : "../image/pokeball2.png";
+
+            let gifCard =
+                resultado['sprites']['versions']['generation-v']['black-white']['animated']['front_default'] ||
+                resultado['sprites']['front_default'] ||
+                resultado['sprites']['other']['official-artwork']['front_default'] ||
+                "../image/pokeball2.png";
 
             let plantillaTy = `
             <div class="pokemon">
                 <div class = "pokemon-imagen">
-                    <img src=${resultado['sprites']['versions']['generation-iv']['platinum']['front_default']} alt =${resultado.name}>
+                    <img src=${imagenCard} alt =${resultado.name}>
                     <div class="pokemon-info">
                         <div class="nombre-c">
                             <p class="pokemon-id">#${resultado.id}</p>
@@ -142,13 +175,13 @@ let typing = async (url, dato) => {
                 </div>
                 <div class="poke-animacion">
                     <div class="pokemon-imagen">
-                        <img src=${resultado['sprites']['front_default']}>
+                        <img src=${animacionimage}>
                     </div>
                 </div>
 
                 <div class="poke-modal">
                     <div class="pokemon-imagen">
-                    <img src=${resultado['sprites']['versions']['generation-v']['black-white']['animated']['front_default']}>
+                    <img src=${gifCard}>
                     <div class="info">
                         <div class="poke-types">
                         ${resultado.types.map(type => `<p class="tipo ${type.type.name}">${type.type.name}</p>`).join('')}

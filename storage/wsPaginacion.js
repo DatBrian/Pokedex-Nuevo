@@ -24,7 +24,7 @@ let getPokemon = async (url) => {
             let imagenCard =
                 resultado['sprites']['versions']['generation-iv']['platinum']['front_default'] ||
                 resultado['sprites']['front_default'] ||
-                resultado['sprites']['other']['official-artwork']['front_default'] ||
+                resultado['sprites']['o r']['official-artwork']['front_default'] ||
                 "../image/pokeball2.png";
 
             let animacionimage = resultado['sprites']['front_default']
