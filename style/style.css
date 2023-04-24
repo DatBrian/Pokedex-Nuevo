@@ -708,3 +708,27 @@ button {
     height: 50px;
     pointer-events: none;
 }
+
+.spanHP {
+    background-color: #78C850 !important;
+}
+
+.spanATK {
+    background-color: red !important;
+}
+
+.spanDEF {
+    background-color: #6890F0 !important;
+}
+
+.spanSpA {
+    background-color: #F85888 !important;
+}
+
+.spanSpD {
+    background-color: #E0C068 !important;
+}
+
+.spanSp {
+    background-color: #98D8D8 !important;
+}

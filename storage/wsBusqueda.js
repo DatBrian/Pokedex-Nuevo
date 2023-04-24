@@ -69,41 +69,41 @@ let submit = async (url) => {
                         </div>
                         <div class="pokemon-stats">
                         <div class="progress-bar-container">
-                        <span>HP</span>
+                        <span class="spanHP">HP</span>
                         <div class="progress-bar hp" style="width: ${Math.floor((resultado.stats[0].base_stat / 255) * 100)}%">
                             <p class="num">${resultado.stats[0].base_stat}</p>
                         </div>
                         </div>
 
                         <div class="progress-bar-container">
-                        <span>ATK</span>
+                        <span class="spanATK">ATK</span>
                         <div class="progress-bar ataque" style="width: ${Math.floor((resultado.stats[1].base_stat / 190) * 100)}%">
                             <p class="num">${resultado.stats[1].base_stat}</p></div>
                         </div>
 
                         <div class="progress-bar-container">
-                        <span>DEF</span>
+                        <span class="spanDEF">DEF</span>
                         <div class="progress-bar defensa" style="width: ${Math.floor((resultado.stats[2].base_stat / 230) * 100)}%">
                             <p class="num">${resultado.stats[2].base_stat}</p>
                         </div>
                         </div>
 
                         <div class="progress-bar-container">
-                        <span>SpA</span>
+                        <span class="spanSpA">SpA</span>
                         <div class="progress-bar ataque-especial" style="width: ${Math.floor((resultado.stats[3].base_stat / 194) * 100)}%">
                             <p class="num">${resultado.stats[3].base_stat}</p>
                         </div>
                         </div>
 
                         <div class="progress-bar-container">
-                        <span>SpD</span>
+                        <span class="spanSpD">SpD</span>
                         <div class="progress-bar defensa-especial" style="width: ${Math.floor((resultado.stats[4].base_stat / 230) * 100)}%">
                             <p class="num">${resultado.stats[4].base_stat}</p>
                         </div>
                         </div>
 
                         <div class="progress-bar-container">
-                        <span>Sp</span>
+                        <span class="spanSp">Sp</span>
                         <div class="progress-bar velocidad" style="width: ${Math.floor((resultado.stats[5].base_stat / 180) * 100)}%">
                             <p class="num">${resultado.stats[5].base_stat}</p>
                         </div>
@@ -197,47 +197,46 @@ let typing = async (url, dato) => {
                         </div>
                         <div class="pokemon-stats">
                         <div class="progress-bar-container">
-                        <span>HP</span>
+
+                        <span class="spanHP">HP</span>
                         <div class="progress-bar hp" style="width: ${Math.floor((resultado.stats[0].base_stat / 255) * 100)}%">
                             <p class="num">${resultado.stats[0].base_stat}</p>
                         </div>
                         </div>
 
                         <div class="progress-bar-container">
-                        <span>ATK</span>
+                        <span class="spanATK">ATK</span>
                         <div class="progress-bar ataque" style="width: ${Math.floor((resultado.stats[1].base_stat / 190) * 100)}%">
                             <p class="num">${resultado.stats[1].base_stat}</p></div>
                         </div>
 
                         <div class="progress-bar-container">
-                        <span>DEF</span>
+                        <span class="spanDEF">DEF</span>
                         <div class="progress-bar defensa" style="width: ${Math.floor((resultado.stats[2].base_stat / 230) * 100)}%">
                             <p class="num">${resultado.stats[2].base_stat}</p>
                         </div>
                         </div>
 
                         <div class="progress-bar-container">
-                        <span>SpA</span>
+                        <span class="spanSpA">SpA</span>
                         <div class="progress-bar ataque-especial" style="width: ${Math.floor((resultado.stats[3].base_stat / 194) * 100)}%">
                             <p class="num">${resultado.stats[3].base_stat}</p>
                         </div>
                         </div>
 
                         <div class="progress-bar-container">
-                        <span>SpD</span>
+                        <span class="spanSpD">SpD</span>
                         <div class="progress-bar defensa-especial" style="width: ${Math.floor((resultado.stats[4].base_stat / 230) * 100)}%">
                             <p class="num">${resultado.stats[4].base_stat}</p>
                         </div>
                         </div>
 
                         <div class="progress-bar-container">
-                        <span>Sp</span>
+                        <span class="spanSp">Sp</span>
                         <div class="progress-bar velocidad" style="width: ${Math.floor((resultado.stats[5].base_stat / 180) * 100)}%">
                             <p class="num">${resultado.stats[5].base_stat}</p>
                         </div>
-                        </div>
-
-                        <div class="poke-button"><button class="cerrar-modal">Cerrar</button></div>
+                        </div>                        <div class="poke-button"><button class="cerrar-modal">Cerrar</button></div>
                         </div>
                     </div>
                 </div>
