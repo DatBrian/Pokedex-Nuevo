@@ -15,14 +15,6 @@ function musicaFondo() {
             audio.pause();
         }
     });
-
-    document.addEventListener('load', () => {
-        audio.play();
-    });
-
-    document.addEventListener("reload", () => {
-        audio.play();
-    })
 }
 
 document.addEventListener("click", (e) => {
